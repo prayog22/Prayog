@@ -12,7 +12,6 @@ jobs:
     steps:
       - name: terraform-plan
         uses: dflook/terraform-plan@v1.29.1
-      - uses: prayog22/prayog@main
       - name: Terraform Init
         run: terraform init
       - name: Terraform Apply

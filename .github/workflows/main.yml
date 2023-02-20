@@ -1,0 +1,17 @@
+name: "Terraform GitHub Actions"
+on:
+    pull_request:
+    push: 
+        braches:
+         - terraform/ResourceGroup
+jobs: 
+    terraform:
+      name: "Terraform Init"
+      runs-on: ubuntu/latest
+      steps:
+        - name: "Checkout"
+          uses: actions/checkout@master
+        - name: "Terraform Initialization"
+          uses: prayog22/Prayog@master
+          env: 
+            GITHUB_TOKEN ${{ secrets.GITHUB_TOKEN }}   

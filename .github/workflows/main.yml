@@ -1,17 +1,19 @@
 name: "Terraform GitHub Actions"
 on:
-    pull_request:
-    push: 
-        braches:
-         - terraform/ResourceGroup
+   push: 
+    braches:
+     - main
+   pull_request
+    branches:
+        - main
 jobs: 
-    terraform:
-      name: "Terraform Init"
+    terraform-apply:
       runs-on: ubuntu/latest
       steps:
-        - name: "Checkout"
-          uses: actions/checkout@master
-        - name: "Terraform Initialization"
-          uses: prayog22/Prayog@master
+          - uses: prayog22/Prayog@master
+          - name: Terraform Init
+            run: terraform init
+          - name: Terraform Apply
+            run: terraform apply --auto-approve
           env: 
             GITHUB_TOKEN ${{ secrets.GITHUB_TOKEN }}   
